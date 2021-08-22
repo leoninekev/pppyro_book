@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Part I
+    chapters:
+    - file: Part_I/Module_1/Ch1_Introduction_Pyro
+  - caption: Part II
+    chapters:
+    - file: Part_II/Module_1/Module1_stacks_robust_regression-Pyro
+    - file: Part_II/Module_2/Module2_dogs_log_linear-Pyro
+  - caption: Part III
+    chapters:
+    - file: path/to/part2/chapter1
+    - file: path/to/part2/chapter2
+      sections:
+      - file: path/to/part2/chapter2/section1

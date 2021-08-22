@@ -1,0 +1,1087 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probabilistic Programming with Pyro &#8212; Probabilistic-Programming-with-Pyro</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Stacks: linear regression model" href="../../Part_II/Module_1/Module1_stacks_robust_regression-Pyro.html" />
+    <link rel="prev" title="Probabilitic-Programming-with-Pyro" href="../../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilistic-Programming-with-Pyro</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Probabilitic-Programming-with-Pyro
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part I
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Probabilistic Programming with Pyro
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part_II/Module_1/Module1_stacks_robust_regression-Pyro.html">
+   Stacks: linear regression model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part_II/Module_2/Module2_dogs_log_linear-Pyro.html">
+   Dogs: loglinear model for binary data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part_I/Module_1/Ch1_Introduction_Pyro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/leoninekev/pppyro_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/leoninekev/pppyro_book/issues/new?title=Issue%20on%20page%20%2FPart_I/Module_1/Ch1_Introduction_Pyro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/leoninekev/pppyro_book/master?urlpath=tree/Part_I/Module_1/Ch1_Introduction_Pyro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Probabilistic Programming with Pyro
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-0-1">
+     Version 0.1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-1">
+   Chapter 1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-philosophy-of-bayesian-inference">
+     The Philosophy of Bayesian Inference
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-bayesian-state-of-mind">
+       The Bayesian state of mind
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#our-bayesian-framework">
+       Our Bayesian framework
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#example-mandatory-coin-flip-example">
+         Example: Mandatory coin-flip example
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#example-bug-or-just-sweet-unintended-feature">
+         Example: Bug, or just sweet, unintended feature?
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-distributions">
+     Probability Distributions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discrete-case">
+       Discrete Case
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#continuous-case">
+       Continuous Case
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#but-what-is-lambda">
+       But what is
+       <span class="math notranslate nohighlight">
+        \(\lambda \;\)
+       </span>
+       ?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#example-inferring-behaviour-from-text-message-data">
+         Example: Inferring behaviour from text-message data
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducing-our-first-hammer-pyro">
+     Introducing our first hammer: Pyro
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interpretation">
+       Interpretation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-would-i-want-samples-from-the-posterior-anyways">
+       Why would I want samples from the posterior, anyways?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#exercises">
+         Exercises
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#references">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="probabilistic-programming-with-pyro">
+<h1>Probabilistic Programming with Pyro<a class="headerlink" href="#probabilistic-programming-with-pyro" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-0-1">
+<h2>Version 0.1<a class="headerlink" href="#version-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Original content created by Cam Davidson-Pilon</p>
+<p>Ported to <a class="reference external" href="http://pyro.ai/">Pyro</a> by Carlos Souza (<a class="reference external" href="mailto:souza&#37;&#52;&#48;gatech&#46;edu">souza<span>&#64;</span>gatech<span>&#46;</span>edu</a>), with the help from <a class="reference external" href="https://forum.pyro.ai/">Pyro community</a>.</p>
+<hr class="docutils" />
+<p>Welcome to <em>Bayesian Methods for Hackers</em>. The full Github repository is available at <a class="reference external" href="https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers">github/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers</a>. The other chapters can be found on the project’s <a class="reference external" href="https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/">homepage</a>. We hope you enjoy the book, and we encourage any contributions!</p>
+</div>
+</div>
+<div class="section" id="chapter-1">
+<h1>Chapter 1<a class="headerlink" href="#chapter-1" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="the-philosophy-of-bayesian-inference">
+<h2>The Philosophy of Bayesian Inference<a class="headerlink" href="#the-philosophy-of-bayesian-inference" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>You are a skilled programmer, but bugs still slip into your code. After a particularly difficult implementation of an algorithm, you decide to test your code on a trivial example. It passes. You test the code on a harder problem. It passes once again. And it passes the next, <em>even more difficult</em>, test too! You are starting to believe that there may be no bugs in this code…</p>
+</div></blockquote>
+<p>If you think this way, then congratulations, you already are thinking Bayesian! Bayesian inference is simply updating your beliefs after considering new evidence. A Bayesian can rarely be certain about a result, but he or she can be very confident. Just like in the example above, we can never be 100% sure that our code is bug-free unless we test it on every possible problem; something rarely possible in practice. Instead, we can test it on a large number of problems, and if it succeeds we can feel more <em>confident</em> about our code, but still not certain.  Bayesian inference works identically: we update our beliefs about an outcome; rarely can we be absolutely sure unless we rule out all other alternatives.</p>
+<div class="section" id="the-bayesian-state-of-mind">
+<h3>The Bayesian state of mind<a class="headerlink" href="#the-bayesian-state-of-mind" title="Permalink to this headline">¶</a></h3>
+<p>Bayesian inference differs from more traditional statistical inference by preserving <em>uncertainty</em>. At first, this sounds like a bad statistical technique. Isn’t statistics all about deriving <em>certainty</em> from randomness? To reconcile this, we need to start thinking like Bayesians.</p>
+<p>The Bayesian world-view interprets probability as measure of <em>believability in an event</em>, that is, how confident we are in an event occurring. In fact, we will see in a moment that this is the natural interpretation of probability.</p>
+<p>For this to be clearer, we consider an alternative interpretation of probability: <em>Frequentist</em>, known as the more <em>classical</em> version of statistics, assume that probability is the long-run frequency of events (hence the bestowed title). For example, the <em>probability of plane accidents</em> under a frequentist philosophy is interpreted as the <em>long-term frequency of plane accidents</em>. This makes logical sense for many probabilities of events, but becomes more difficult to understand when events have no long-term frequency of occurrences. Consider: we often assign probabilities to outcomes of presidential elections, but the election itself only happens once! Frequentists get around this by invoking alternative realities and saying across all these realities, the frequency of occurrences defines the probability.</p>
+<p>Bayesians, on the other hand, have a more intuitive approach. Bayesians interpret a probability as measure of <em>belief</em>, or confidence, of an event occurring. Simply, a probability is a summary of an opinion. An individual who assigns a belief of 0 to an event has no confidence that the event will occur; conversely, assigning a belief of 1 implies that the individual is absolutely certain of an event occurring. Beliefs between 0 and 1 allow for weightings of other outcomes. This definition agrees with the probability of a plane accident example, for having observed the frequency of plane accidents, an individual’s belief should be equal to that frequency, excluding any outside information. Similarly, under this definition of probability being equal to beliefs, it is meaningful to speak about probabilities (beliefs) of presidential election outcomes: how confident are you candidate <em>A</em> will win?</p>
+<p>Notice in the paragraph above, I assigned the belief (probability) measure to an <em>individual</em>, not to Nature. This is very interesting, as this definition leaves room for conflicting beliefs between individuals. Again, this is appropriate for what naturally occurs: different individuals have different beliefs of events occurring, because they possess different <em>information</em> about the world. The existence of different beliefs does not imply that anyone is wrong. Consider the following examples demonstrating the relationship between individual beliefs and probabilities:</p>
+<ul class="simple">
+<li><p>I flip a coin, and we both guess the result. We would both agree, assuming the coin is fair, that the probability of Heads is 1/2. Assume, then, that I peek at the coin. Now I know for certain what the result is: I assign probability 1.0 to either Heads or Tails (whichever it is). Now what is <em>your</em> belief that the coin is Heads? My knowledge of the outcome has not changed the coin’s results. Thus we assign different probabilities to the result.</p></li>
+<li><p>Your code either has a bug in it or not, but we do not know for certain which is true, though we have a belief about the presence or absence of a bug.</p></li>
+<li><p>A medical patient is exhibiting symptoms <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>. There are a number of diseases that could be causing all of them, but only a single disease is present. A doctor has beliefs about which disease, but a second doctor may have slightly different beliefs.</p></li>
+</ul>
+<p>This philosophy of treating beliefs as probability is natural to humans. We employ it constantly as we interact with the world and only see partial truths, but gather evidence to form beliefs. Alternatively, you have to be <em>trained</em> to think like a frequentist.</p>
+<p>To align ourselves with traditional probability notation, we denote our belief about event <span class="math notranslate nohighlight">\(A\)</span> as <span class="math notranslate nohighlight">\(P(A)\)</span>. We call this quantity the <em>prior probability</em>.</p>
+<p>John Maynard Keynes, a great economist and thinker, said “When the facts change, I change my mind. What do you do, sir?” This quote reflects the way a Bayesian updates his or her beliefs after seeing evidence. Even — especially — if the evidence is counter to what was initially believed, the evidence cannot be ignored. We denote our updated belief as <span class="math notranslate nohighlight">\(P(A |X )\)</span>, interpreted as the probability of <span class="math notranslate nohighlight">\(A\)</span> given the evidence <span class="math notranslate nohighlight">\(X\)</span>. We call the updated belief the <em>posterior probability</em> so as to contrast it with the prior probability. For example, consider the posterior probabilities (read: posterior beliefs) of the above examples, after observing some evidence <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<p>1. <span class="math notranslate nohighlight">\(P(A): \;\;\)</span> the coin has a 50 percent chance of being Heads. <span class="math notranslate nohighlight">\(P(A | X):\;\;\)</span> You look at the coin, observe a Heads has landed, denote this information <span class="math notranslate nohighlight">\(X\)</span>, and trivially assign probability 1.0 to Heads and 0.0 to Tails.</p>
+<p>2.   <span class="math notranslate nohighlight">\(P(A): \;\;\)</span>  This big, complex code likely has a bug in it. <span class="math notranslate nohighlight">\(P(A | X): \;\;\)</span> The code passed all <span class="math notranslate nohighlight">\(X\)</span> tests; there still might be a bug, but its presence is less likely now.</p>
+<p>3.  <span class="math notranslate nohighlight">\(P(A):\;\;\)</span> The patient could have any number of diseases. <span class="math notranslate nohighlight">\(P(A | X):\;\;\)</span> Performing a blood test generated evidence <span class="math notranslate nohighlight">\(X\)</span>, ruling out some of the possible diseases from consideration.</p>
+<p>It’s clear that in each example we did not completely discard the prior belief after seeing new evidence <span class="math notranslate nohighlight">\(X\)</span>, but we <em>re-weighted the prior</em> to incorporate the new evidence (i.e. we put more weight, or confidence, on some beliefs versus others).</p>
+<p>By introducing prior uncertainty about events, we are already admitting that any guess we make is potentially very wrong. After observing data, evidence, or other information, we update our beliefs, and our guess becomes <em>less wrong</em>. This is the alternative side of the prediction coin, where typically we try to be <em>more right</em>.</p>
+</div>
+<div class="section" id="our-bayesian-framework">
+<h3>Our Bayesian framework<a class="headerlink" href="#our-bayesian-framework" title="Permalink to this headline">¶</a></h3>
+<p>We are interested in beliefs, which can be interpreted as probabilities by thinking Bayesian. We have a <em>prior</em> belief in event <span class="math notranslate nohighlight">\(A\)</span>, beliefs formed by previous information, e.g., our prior belief about bugs being in our code before performing tests.</p>
+<p>Secondly, we observe our evidence. To continue our buggy-code example: if our code passes <span class="math notranslate nohighlight">\(X\)</span> tests, we want to update our belief to incorporate this. We call this new belief the <em>posterior</em> probability. Updating our belief is done via the following equation, known as Bayes’ Theorem, after its discoverer Thomas Bayes:</p>
+<p>\begin{align}
+P( A | X ) = &amp; \frac{ P(X | A) P(A) } {P(X) } \[5pt]
+&amp; \propto P(X | A) P(A);; (\propto \text{is proportional to })
+\end{align}</p>
+<p>The above formula is not unique to Bayesian inference: it is a mathematical fact with uses outside Bayesian inference. Bayesian inference merely uses it to connect prior probabilities <span class="math notranslate nohighlight">\(P(A)\)</span> with an updated posterior probabilities <span class="math notranslate nohighlight">\(P(A | X )\)</span>.</p>
+<div class="section" id="example-mandatory-coin-flip-example">
+<h4>Example: Mandatory coin-flip example<a class="headerlink" href="#example-mandatory-coin-flip-example" title="Permalink to this headline">¶</a></h4>
+<p>Every statistics text must contain a coin-flipping example, I’ll use it here to get it out of the way. Suppose, naively, that you are unsure about the probability of heads in a coin flip (spoiler alert: it’s 50%). You believe there is some true underlying ratio, call it <span class="math notranslate nohighlight">\(p\)</span>, but have no prior opinion on what <span class="math notranslate nohighlight">\(p\)</span> might be.</p>
+<p>We begin to flip a coin, and record the observations: either <span class="math notranslate nohighlight">\(H\)</span> or <span class="math notranslate nohighlight">\(T\)</span>. This is our observed data. An interesting question to ask is how our inference changes as we observe more and more data? More specifically, what do our posterior probabilities look like when we have little data, versus when we have lots of data.</p>
+<p>Below we plot a sequence of updating posterior probabilities as we observe increasing amounts of data (coin flips).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">pyro</span>
+<span class="kn">import</span> <span class="nn">pyro.distributions</span> <span class="k">as</span> <span class="nn">dist</span>
+<span class="kn">from</span> <span class="nn">pyro.infer</span> <span class="kn">import</span> <span class="n">MCMC</span><span class="p">,</span> <span class="n">NUTS</span><span class="p">,</span> <span class="n">HMC</span>
+<span class="kn">from</span> <span class="nn">IPython.core.pylabtools</span> <span class="kn">import</span> <span class="n">figsize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">32</span><span class="o">/</span><span class="n">h3v8h41j1wl7tvx466dpsmnm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_9184</span><span class="o">/</span><span class="mf">1136147253.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">torch</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pyro</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pyro.distributions</span> <span class="k">as</span> <span class="nn">dist</span>
+
+<span class="nn">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2346</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2347</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2348</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2349</span>             <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">   </span><span class="mi">2350</span> 
+
+<span class="nn">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/decorator.py</span> in <span class="ni">fun</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>                 <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">232</span>             <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span>
+
+<span class="nn">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> 
+<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+
+<span class="nn">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/IPython/core/magics/pylab.py</span> in <span class="ni">matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">backends_list</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>             <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> 
+
+<span class="nn">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3515</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3516</span><span class="s2">         from IPython.core import pylabtools as pt</span>
+<span class="ne">-&gt; </span><span class="mi">3517</span><span class="s2">         from matplotlib_inline.backend_inline import configure_inline_support</span>
+<span class="g g-Whitespace">   </span><span class="mi">3518</span><span class="s2">         gui, backend = pt.find_gui_and_backend(gui, self.pylab_gui_select)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3519</span><span class="s2"> </span>
+
+<span class="s2">~/Desktop/pyro-venv/pyro-venv/miniforge_x86_64/lib/python3.9/site-packages/matplotlib_inline/backend_inline.py in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="s2"> # Distributed under the terms of the BSD 3-Clause License.</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="s2"> </span>
+<span class="ne">----&gt; </span><span class="mi">6</span><span class="s2"> import matplotlib</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="s2"> from matplotlib.backends.backend_agg import (  # noqa</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="s2">     new_figure_manager,</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_trials</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s1">&#39;coin_toss&#39;</span><span class="p">,</span> <span class="n">pyro</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Bernoulli</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">[</span><span class="n">n_trials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># For the already prepared, I&#39;m using Binomial&#39;s conj. prior.</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+    <span class="n">sx</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$p$, probability of heads&quot;</span><span class="p">)</span> \
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">sx</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">heads</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Beta</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">heads</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">N</span> <span class="o">-</span> <span class="n">heads</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;observe </span><span class="si">%d</span><span class="s2"> tosses,</span><span class="se">\n</span><span class="s2"> </span><span class="si">%d</span><span class="s2"> heads&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">heads</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">leg</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Bayesian updating of posterior probabilities&quot;</span><span class="p">,</span>
+             <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_8_0.png" src="../../_images/Ch1_Introduction_Pyro_8_0.png" />
+</div>
+</div>
+<p>The posterior probabilities are represented by the curves, and our uncertainty is proportional to the width of the curve. As the plot above shows, as we start to observe data our posterior probabilities start to shift and move around. Eventually, as we observe more and more data (coin-flips), our probabilities will tighten closer and closer around the true value of <span class="math notranslate nohighlight">\(p=0.5\)</span> (marked by a dashed line).</p>
+<p>Notice that the plots are not always <em>peaked</em> at 0.5. There is no reason it should be: recall we assumed we did not have a prior opinion of what <span class="math notranslate nohighlight">\(p\)</span> is. In fact, if we observe quite extreme data, say 8 flips and only 1 observed heads, our distribution would look very biased <em>away</em> from lumping around 0.5 (with no prior opinion, how confident would you feel betting on a fair coin after observing 8 tails and 1 head?). As more data accumulates, we would see more and more probability being assigned at <span class="math notranslate nohighlight">\(p=0.5\)</span>, though never all of it.</p>
+<p>The next example is a simple demonstration of the mathematics of Bayesian inference.</p>
+</div>
+<div class="section" id="example-bug-or-just-sweet-unintended-feature">
+<h4>Example: Bug, or just sweet, unintended feature?<a class="headerlink" href="#example-bug-or-just-sweet-unintended-feature" title="Permalink to this headline">¶</a></h4>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> denote the event that our code has <strong>no bugs</strong> in it. Let <span class="math notranslate nohighlight">\(X\)</span> denote the event that the code passes all debugging tests. For now, we will leave the prior probability of no bugs as a variable, i.e. <span class="math notranslate nohighlight">\(P(A) = p\)</span>.</p>
+<p>We are interested in <span class="math notranslate nohighlight">\(P(A|X)\)</span>, i.e. the probability of no bugs, given our debugging tests <span class="math notranslate nohighlight">\(X\)</span>. To use the formula above, we need to compute some quantities.</p>
+<p>What is <span class="math notranslate nohighlight">\(P(X | A)\)</span>, i.e., the probability that the code passes <span class="math notranslate nohighlight">\(X\)</span> tests <em>given</em> there are no bugs? Well, it is equal to 1, for a code with no bugs will pass all tests.</p>
+<p><span class="math notranslate nohighlight">\(P(X)\)</span> is a little bit trickier: The event <span class="math notranslate nohighlight">\(X\)</span> can be divided into two possibilities, event <span class="math notranslate nohighlight">\(X\)</span> occurring even though our code <em>indeed has</em> bugs (denoted <span class="math notranslate nohighlight">\(\sim A\;\)</span>, spoken <em>not <span class="math notranslate nohighlight">\(A\)</span></em>), or event <span class="math notranslate nohighlight">\(X\)</span> without bugs (<span class="math notranslate nohighlight">\(A\)</span>). <span class="math notranslate nohighlight">\(P(X)\)</span> can be represented as:</p>
+<p>\begin{align}
+P(X ) &amp; = P(X \text{ and } A) + P(X \text{ and } \sim A) \[5pt]
+&amp; = P(X|A)P(A) + P(X | \sim A)P(\sim A)\[5pt]
+&amp; = P(X|A)p + P(X | \sim A)(1-p)
+\end{align}</p>
+<p>We have already computed <span class="math notranslate nohighlight">\(P(X|A)\)</span> above. On the other hand, <span class="math notranslate nohighlight">\(P(X | \sim A)\)</span> is subjective: our code can pass tests but still have a bug in it, though the probability there is a bug present is reduced. Note this is dependent on the number of tests performed, the degree of complication in the tests, etc. Let’s be conservative and assign <span class="math notranslate nohighlight">\(P(X|\sim A) = 0.5\)</span>. Then</p>
+<p>\begin{align}
+P(A | X) &amp; = \frac{1\cdot p}{ 1\cdot p +0.5 (1-p) } \
+&amp; = \frac{ 2 p}{1+p}
+\end{align}
+This is the posterior probability. What does it look like as a function of our prior, <span class="math notranslate nohighlight">\(p \in [0,1]\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span><span class="o">/</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prior, $P(A) = p$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Posterior, $P(A|X)$, with $P(A) = p$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Are there bugs in my code?&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_13_0.png" src="../../_images/Ch1_Introduction_Pyro_13_0.png" />
+</div>
+</div>
+<p>We can see the biggest gains if we observe the <span class="math notranslate nohighlight">\(X\)</span> tests passed when the prior probability, <span class="math notranslate nohighlight">\(p\)</span>, is low. Let’s settle on a specific value for the prior. I’m a strong programmer (I think), so I’m going to give myself a realistic prior of 0.20, that is, there is a 20% chance that I write code bug-free. To be more realistic, this prior should be a function of how complicated and large the code is, but let’s pin it at 0.20. Then my updated belief that my code is bug-free is 0.33.</p>
+<p>Recall that the prior is a probability: <span class="math notranslate nohighlight">\(p\)</span> is the prior probability that there <em>are no bugs</em>, so <span class="math notranslate nohighlight">\(1-p\)</span> is the prior probability that there <em>are bugs</em>.</p>
+<p>Similarly, our posterior is also a probability, with <span class="math notranslate nohighlight">\(P(A | X)\)</span> the probability there is no bug <em>given we saw all tests pass</em>, hence <span class="math notranslate nohighlight">\(1-P(A|X)\)</span> is the probability there is a bug <em>given all tests passed</em>. What does our posterior probability look like? Below is a chart of both the prior and the posterior probabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="s2">&quot;#A60628&quot;</span><span class="p">]</span>
+
+<span class="n">prior</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">]</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.7</span><span class="p">],</span> <span class="n">prior</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.70</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;prior distribution&quot;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="o">+</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">.7</span><span class="o">+</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">posterior</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;posterior distribution&quot;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">.95</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Bugs Absent&quot;</span><span class="p">,</span> <span class="s2">&quot;Bugs Present&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Prior and Posterior probability of bugs present&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_15_0.png" src="../../_images/Ch1_Introduction_Pyro_15_0.png" />
+</div>
+</div>
+<p>Notice that after we observed <span class="math notranslate nohighlight">\(X\)</span> occur, the probability of bugs being absent increased. By increasing the number of tests, we can approach confidence (probability 1) that there are no bugs present.</p>
+<p>This was a very simple example of Bayesian inference and Bayes rule. Unfortunately, the mathematics necessary to perform more complicated Bayesian inference only becomes more difficult, except for artificially constructed cases. We will later see that this type of mathematical analysis is actually unnecessary. First we must broaden our modeling tools. The next section deals with <em>probability distributions</em>. If you are already familiar, feel free to skip (or at least skim), but for the less familiar the next section is essential.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="probability-distributions">
+<h2>Probability Distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Let’s quickly recall what a probability distribution is:</strong> Let <span class="math notranslate nohighlight">\(Z\)</span> be some random variable. Then associated with <span class="math notranslate nohighlight">\(Z\)</span> is a <em>probability distribution function</em> that assigns probabilities to the different outcomes <span class="math notranslate nohighlight">\(Z\)</span> can take. Graphically, a probability distribution is a curve where the probability of an outcome is proportional to the height of the curve. You can see examples in the first figure of this chapter.</p>
+<p>We can divide random variables into three classifications:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(Z\)</span> is discrete</strong>: Discrete random variables may only assume values on a specified list. Things like populations, movie ratings, and number of votes are all discrete random variables. Discrete random variables become more clear when we contrast them with…</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(Z\)</span> is continuous</strong>: Continuous random variable can take on arbitrarily exact values. For example, temperature, speed, time, color are all modeled as continuous variables because you can progressively make the values more and more precise.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(Z\)</span> is mixed</strong>: Mixed random variables assign probabilities to both discrete and continuous random variables, i.e. it is a combination of the above two categories.</p></li>
+</ul>
+<div class="section" id="discrete-case">
+<h3>Discrete Case<a class="headerlink" href="#discrete-case" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(Z\)</span> is discrete, then its distribution is called a <em>probability mass function</em>, which measures the probability <span class="math notranslate nohighlight">\(Z\)</span> takes on the value <span class="math notranslate nohighlight">\(k\)</span>, denoted <span class="math notranslate nohighlight">\(P(Z=k)\)</span>. Note that the probability mass function completely describes the random variable <span class="math notranslate nohighlight">\(Z\)</span>, that is, if we know the mass function, we know how <span class="math notranslate nohighlight">\(Z\)</span> should behave. There are popular probability mass functions that consistently appear: we will introduce them as needed, but let’s introduce the first very useful probability mass function. We say <span class="math notranslate nohighlight">\(Z\)</span> is <em>Poisson</em>-distributed if:</p>
+<div class="math notranslate nohighlight">
+\[P(Z = k) =\frac{ \lambda^k e^{-\lambda} }{k!}, \; \; k=0,1,2, \dots \]</div>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> is called a parameter of the distribution, and it controls the distribution’s shape. For the Poisson distribution, <span class="math notranslate nohighlight">\(\lambda\)</span> can be any positive number. By increasing <span class="math notranslate nohighlight">\(\lambda\)</span>, we add more probability to larger values, and conversely by decreasing <span class="math notranslate nohighlight">\(\lambda\)</span> we add more probability to smaller values. One can describe <span class="math notranslate nohighlight">\(\lambda\)</span> as the <em>intensity</em> of the Poisson distribution.</p>
+<p>Unlike <span class="math notranslate nohighlight">\(\lambda\)</span>, which can be any positive number, the value <span class="math notranslate nohighlight">\(k\)</span> in the above formula must be a non-negative integer, i.e., <span class="math notranslate nohighlight">\(k\)</span> must take on values 0,1,2, and so on. This is very important, because if you wanted to model a population you could not make sense of populations with 4.25 or 5.612 members.</p>
+<p>If a random variable <span class="math notranslate nohighlight">\(Z\)</span> has a Poisson mass distribution, we denote this by writing</p>
+<div class="math notranslate nohighlight">
+\[Z \sim \text{Poi}(\lambda) \]</div>
+<p>One useful property of the Poisson distribution is that its expected value is equal to its parameter, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[E\large[ \;Z\; | \; \lambda \;\large] = \lambda \]</div>
+<p>We will use this property often, so it’s useful to remember. Below, we plot the probability mass distribution for different <span class="math notranslate nohighlight">\(\lambda\)</span> values. The first thing to notice is that by increasing <span class="math notranslate nohighlight">\(\lambda\)</span>, we add more probability of larger values occurring. Second, notice that although the graph ends at 15, the distributions do not. They assign positive probability to every non-negative integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">lambda_</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.25</span><span class="p">]</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">lambda_</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="s2">&quot;#A60628&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\lambda = </span><span class="si">%.1f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\lambda = </span><span class="si">%.1f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability of $k$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Probability mass function of a Poisson random variable; differing </span><span class="se">\</span>
+<span class="s2">$\lambda$ values&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_18_0.png" src="../../_images/Ch1_Introduction_Pyro_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="continuous-case">
+<h3>Continuous Case<a class="headerlink" href="#continuous-case" title="Permalink to this headline">¶</a></h3>
+<p>Instead of a probability mass function, a continuous random variable has a <em>probability density function</em>. This might seem like unnecessary nomenclature, but the density function and the mass function are very different creatures. An example of continuous random variable is a random variable with <em>exponential density</em>. The density function for an exponential random variable looks like this:</p>
+<div class="math notranslate nohighlight">
+\[f_Z(z | \lambda) = \lambda e^{-\lambda z }, \;\; z\ge 0\]</div>
+<p>Like a Poisson random variable, an exponential random variable can take on only non-negative values. But unlike a Poisson variable, the exponential can take on <em>any</em> non-negative values, including non-integral values such as 4.25 or 5.612401. This property makes it a poor choice for count data, which must be an integer, but a great choice for time data, temperature data (measured in Kelvins, of course), or any other precise <em>and positive</em> variable. The graph below shows two probability density functions with different <span class="math notranslate nohighlight">\(\lambda\)</span> values.</p>
+<p>When a random variable <span class="math notranslate nohighlight">\(Z\)</span> has an exponential distribution with parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, we say <em><span class="math notranslate nohighlight">\(Z\)</span> is exponential</em> and write</p>
+<div class="math notranslate nohighlight">
+\[Z \sim \text{Exp}(\lambda)\]</div>
+<p>Given a specific <span class="math notranslate nohighlight">\(\lambda\)</span>, the expected value of an exponential random variable is equal to the inverse of <span class="math notranslate nohighlight">\(\lambda\)</span>, that is:</p>
+<div class="math notranslate nohighlight">
+\[E[\; Z \;|\; \lambda \;] = \frac{1}{\lambda}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambda_</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">lambda_</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colours</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\lambda = </span><span class="si">%.1f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">lambda_</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.33</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PDF at $z$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Probability density function of an Exponential random variable;</span><span class="se">\</span>
+<span class="s2"> differing $\lambda$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_21_0.png" src="../../_images/Ch1_Introduction_Pyro_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="but-what-is-lambda">
+<h3>But what is <span class="math notranslate nohighlight">\(\lambda \;\)</span>?<a class="headerlink" href="#but-what-is-lambda" title="Permalink to this headline">¶</a></h3>
+<p><strong>This question is what motivates statistics</strong>. In the real world, <span class="math notranslate nohighlight">\(\lambda\)</span> is hidden from us. We see only <span class="math notranslate nohighlight">\(Z\)</span>, and must go backwards to try and determine <span class="math notranslate nohighlight">\(\lambda\)</span>. The problem is difficult because there is no one-to-one mapping from <span class="math notranslate nohighlight">\(Z\)</span> to <span class="math notranslate nohighlight">\(\lambda\)</span>. Many different methods have been created to solve the problem of estimating <span class="math notranslate nohighlight">\(\lambda\)</span>, but since <span class="math notranslate nohighlight">\(\lambda\)</span> is never actually observed, no one can say for certain which method is best!</p>
+<p>Bayesian inference is concerned with <em>beliefs</em> about what <span class="math notranslate nohighlight">\(\lambda\)</span> might be. Rather than try to guess <span class="math notranslate nohighlight">\(\lambda\)</span> exactly, we can only talk about what <span class="math notranslate nohighlight">\(\lambda\)</span> is likely to be by assigning a probability distribution to <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>This might seem odd at first. After all, <span class="math notranslate nohighlight">\(\lambda\)</span> is fixed; it is not (necessarily) random! How can we assign probabilities to values of a non-random variable? Ah, we have fallen for our old, frequentist way of thinking. Recall that under Bayesian philosophy, we <em>can</em> assign probabilities if we interpret them as beliefs. And it is entirely acceptable to have <em>beliefs</em> about the parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<div class="section" id="example-inferring-behaviour-from-text-message-data">
+<h4>Example: Inferring behaviour from text-message data<a class="headerlink" href="#example-inferring-behaviour-from-text-message-data" title="Permalink to this headline">¶</a></h4>
+<p>Let’s try to model a more interesting example, one that concerns the rate at which a user sends and receives text messages:</p>
+<blockquote>
+<div><p>You are given a series of daily text-message counts from a user of your system. The data, plotted over time, appears in the chart below. You are curious to know if the user’s text-messaging habits have changed over time, either gradually or suddenly. How can you model this? (This is in fact my own text-message data. Judge my popularity as you wish.)</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>
+<span class="n">count_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;data/txtdata.csv&quot;</span><span class="p">))</span>
+<span class="n">n_count_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">count_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_count_data</span><span class="p">),</span> <span class="n">count_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;count of text-msgs received&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Did the user&#39;s texting habits change over time?&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_count_data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_24_0.png" src="../../_images/Ch1_Introduction_Pyro_24_0.png" />
+</div>
+</div>
+<p>Before we start modeling, see what you can figure out just by looking at the chart above. Would you say there was a change in behaviour during this time period?</p>
+<p>How can we start to model this? Well, as we have conveniently already seen, a Poisson random variable is a very appropriate model for this type of <em>count</em> data. Denoting day <span class="math notranslate nohighlight">\(i\)</span>’s text-message count by <span class="math notranslate nohighlight">\(C_i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ C_i \sim \text{Poisson}(\lambda)  \]</div>
+<p>We are not sure what the value of the <span class="math notranslate nohighlight">\(\lambda\)</span> parameter really is, however. Looking at the chart above, it appears that the rate might become higher late in the observation period, which is equivalent to saying that <span class="math notranslate nohighlight">\(\lambda\)</span> increases at some point during the observations. (Recall that a higher value of <span class="math notranslate nohighlight">\(\lambda\)</span> assigns more probability to larger outcomes. That is, there is a higher probability of many text messages having been sent on a given day.)</p>
+<p>How can we represent this observation mathematically? Let’s assume that on some day during the observation period (call it <span class="math notranslate nohighlight">\(\tau\)</span>), the parameter <span class="math notranslate nohighlight">\(\lambda\)</span> suddenly jumps to a higher value. So we really have two <span class="math notranslate nohighlight">\(\lambda\)</span> parameters: one for the period before <span class="math notranslate nohighlight">\(\tau\)</span>, and one for the rest of the observation period. In the literature, a sudden transition like this would be called a <em>switchpoint</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = 
+\begin{cases}
+\lambda_1  &amp; \text{if } t \lt \tau \cr
+\lambda_2 &amp; \text{if } t \ge \tau
+\end{cases}
+\]</div>
+<p>If, in reality, no sudden change occurred and indeed <span class="math notranslate nohighlight">\(\lambda_1 = \lambda_2\)</span>, then the <span class="math notranslate nohighlight">\(\lambda\)</span>s posterior distributions should look about equal.</p>
+<p>We are interested in inferring the unknown <span class="math notranslate nohighlight">\(\lambda\)</span>s. To use Bayesian inference, we need to assign prior probabilities to the different possible values of <span class="math notranslate nohighlight">\(\lambda\)</span>. What would be good prior probability distributions for <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>? Recall that <span class="math notranslate nohighlight">\(\lambda\)</span> can be any positive number. As we saw earlier, the <em>exponential</em> distribution provides a continuous density function for positive numbers, so it might be a good choice for modeling <span class="math notranslate nohighlight">\(\lambda_i\)</span>. But recall that the exponential distribution takes a parameter of its own, so we’ll need to include that parameter in our model. Let’s call that parameter <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>\begin{align}
+&amp;\lambda_1 \sim \text{Exp}( \alpha ) \<br />
+&amp;\lambda_2 \sim \text{Exp}( \alpha )
+\end{align}</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> is called a <em>hyper-parameter</em> or <em>parent variable</em>. In literal terms, it is a parameter that influences other parameters. Our initial guess at <span class="math notranslate nohighlight">\(\alpha\)</span> does not influence the model too strongly, so we have some flexibility in our choice.  A good rule of thumb is to set the exponential parameter equal to the inverse of the average of the count data. Since we’re modeling <span class="math notranslate nohighlight">\(\lambda\)</span> using an exponential distribution, we can use the expected value identity shown earlier to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{N}\sum_{i=0}^N \;C_i \approx E[\; \lambda \; |\; \alpha ] = \frac{1}{\alpha}\]</div>
+<p>An alternative, and something I encourage the reader to try, would be to have two priors: one for each <span class="math notranslate nohighlight">\(\lambda_i\)</span>. Creating two exponential distributions with different <span class="math notranslate nohighlight">\(\alpha\)</span> values reflects our prior belief that the rate changed at some point during the observations.</p>
+<p>What about <span class="math notranslate nohighlight">\(\tau\)</span>? Because of the noisiness of the data, it’s difficult to pick out a priori when <span class="math notranslate nohighlight">\(\tau\)</span> might have occurred. Instead, we can assign a <em>uniform prior belief</em> to every possible day. This is equivalent to saying</p>
+<p>\begin{align}
+&amp; \tau \sim \text{DiscreteUniform(1,70) }\
+&amp; \Rightarrow P( \tau = k ) = \frac{1}{70}
+\end{align}</p>
+<p>So after all this, what does our overall prior distribution for the unknown variables look like? Frankly, <em>it doesn’t matter</em>. What we should understand is that it’s an ugly, complicated mess involving symbols only a mathematician could love. And things will only get uglier the more complicated our models become. Regardless, all we really care about is the posterior distribution.</p>
+<p>We next turn to <a class="reference external" href="https://pyro.ai/">Pyro</a>, a Python library for performing Bayesian analysis that is undaunted by the mathematical monster we have created.</p>
+</div>
+</div>
+</div>
+<div class="section" id="introducing-our-first-hammer-pyro">
+<h2>Introducing our first hammer: Pyro<a class="headerlink" href="#introducing-our-first-hammer-pyro" title="Permalink to this headline">¶</a></h2>
+<p>Pyro is a Python library for programming Bayesian analysis. It is intended for data scientists, statisticians, machine learning practitioners, and scientists. Since it is built on the PyTorch stack, it brings the runtime benefits of PyTorch to Bayesian analysis. These include write-once run-many (ability to run your development model in production) and speedups via state-of-the-art hardware (GPUs and TPUs).</p>
+<p>Since Pyro is relatively new, the Pyro community is actively developing documentation,
+especially docs and examples that bridge the gap between beginner and hacker. One of this book’s main goals is to solve that problem, and also to demonstrate why TFP is so cool.</p>
+<p>We will model the problem above using Pyro. This type of programming is called <em>probabilistic programming</em>, an unfortunate misnomer that invokes ideas of randomly-generated code and has likely confused and frightened users away from this field. The code is not random; it is probabilistic in the sense that we create probability models using programming variables as the model’s components.</p>
+<p>B. Cronin <a class="reference external" href="#scrollTo=nDdph0r1ABCn">[4]</a> has a very motivating description of probabilistic programming:</p>
+<blockquote>
+<div><p>Another way of thinking about this: unlike a traditional program, which only runs in the forward directions, a probabilistic program is run in both the forward and backward direction. It runs forward to compute the consequences of the assumptions it contains about the world (i.e., the model space it represents), but it also runs backward from the data to constrain the possible explanations. In practice, many probabilistic programming systems will cleverly interleave these forward and backward operations to efficiently home in on the best explanations.</p>
+</div></blockquote>
+<p>Because of the confusion engendered by the term <em>probabilistic programming</em>, I’ll refrain from using it. Instead, I’ll simply say <em>programming</em>, since that’s what it really is.</p>
+<p>Pyro code is easy to read. The only novel thing should be the syntax. Simply remember that we are representing the model’s components (<span class="math notranslate nohighlight">\(\tau, \lambda_1, \lambda_2\)</span> ) as variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">lambda_1</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;lambda_1&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="n">lambda_2</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;lambda_2&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+    
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;tau&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">lambda1_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+    <span class="n">lambda2_size</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">lambda1_size</span>
+    <span class="n">lambda_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">lambda_1</span><span class="o">.</span><span class="n">expand</span><span class="p">((</span><span class="n">lambda1_size</span><span class="p">,)),</span>
+                         <span class="n">lambda_2</span><span class="o">.</span><span class="n">expand</span><span class="p">((</span><span class="n">lambda2_size</span><span class="p">,))])</span>
+
+    <span class="k">with</span> <span class="n">pyro</span><span class="o">.</span><span class="n">plate</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="n">pyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="n">lambda_</span><span class="p">),</span> <span class="n">obs</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span> <span class="o">=</span> <span class="n">NUTS</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">jit_compile</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_jit_warnings</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_tree_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">MCMC</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">posterior</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">count_data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample: 100%|██████████| 5500/5500 [00:43, 126.11it/s, step size=2.45e-01, acc. prob=0.802]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hmc_samples</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">posterior</span><span class="o">.</span><span class="n">get_samples</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">lambda_1_samples</span> <span class="o">=</span> <span class="n">hmc_samples</span><span class="p">[</span><span class="s1">&#39;lambda_1&#39;</span><span class="p">]</span>
+<span class="n">lambda_2_samples</span> <span class="o">=</span> <span class="n">hmc_samples</span><span class="p">[</span><span class="s1">&#39;lambda_2&#39;</span><span class="p">]</span>
+<span class="n">tau_samples</span> <span class="o">=</span> <span class="p">(</span><span class="n">hmc_samples</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">count_data</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">#histogram of the samples:</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_autoscaley_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lambda_1_samples</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;posterior of $\lambda_1$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#A60628&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Posterior distributions of the variables</span>
+<span class="s2">    $\lambda_1,\;\lambda_2,\;\tau$&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\lambda_1$ value&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_autoscaley_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lambda_2_samples</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;posterior of $\lambda_2$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#7A68A6&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\lambda_2$ value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">tau_samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">tau_samples</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tau_samples</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_count_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;posterior of $\tau$&quot;</span><span class="p">,</span>
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#467821&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">2.</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_count_data</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.75</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">count_data</span><span class="p">)</span><span class="o">-</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau$ (in days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_29_0.png" src="../../_images/Ch1_Introduction_Pyro_29_0.png" />
+</div>
+</div>
+<div class="section" id="interpretation">
+<h3>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
+<p>Recall that Bayesian methodology returns a <em>distribution</em>. Hence we now have distributions to describe the unknown <span class="math notranslate nohighlight">\(\lambda\)</span>s and <span class="math notranslate nohighlight">\(\tau\)</span>. What have we gained? Immediately, we can see the uncertainty in our estimates: the wider the distribution, the less certain our posterior belief should be. We can also see what the plausible values for the parameters are: <span class="math notranslate nohighlight">\(\lambda_1\)</span> is around 18 and <span class="math notranslate nohighlight">\(\lambda_2\)</span> is around 23. The posterior distributions of the two <span class="math notranslate nohighlight">\(\lambda\)</span>s are clearly distinct, indicating that it is indeed likely that there was a change in the user’s text-message behaviour.</p>
+<p>What other observations can you make? If you look at the original data again, do these results seem reasonable?</p>
+<p>Notice also that the posterior distributions for the <span class="math notranslate nohighlight">\(\lambda\)</span>s do not look like exponential distributions, even though our priors for these variables were exponential. In fact, the posterior distributions are not really of any form that we recognize from the original model. But that’s OK! This is one of the benefits of taking a computational point of view. If we had instead done this analysis using mathematical approaches, we would have been stuck with an analytically intractable (and messy) distribution. Our use of a computational approach makes us indifferent to mathematical tractability.</p>
+<p>Our analysis also returned a distribution for <span class="math notranslate nohighlight">\(\tau\)</span>. Its posterior distribution looks a little different from the other two because it is a discrete random variable, so it doesn’t assign probabilities to intervals. We can see that near day 45, there was a 50% chance that the user’s behaviour changed. Had no change occurred, or had the change been gradual over time, the posterior distribution of <span class="math notranslate nohighlight">\(\tau\)</span> would have been more spread out, reflecting that many days were plausible candidates for <span class="math notranslate nohighlight">\(\tau\)</span>. By contrast, in the actual results we see that only three or four days make any sense as potential transition points.</p>
+</div>
+<div class="section" id="why-would-i-want-samples-from-the-posterior-anyways">
+<h3>Why would I want samples from the posterior, anyways?<a class="headerlink" href="#why-would-i-want-samples-from-the-posterior-anyways" title="Permalink to this headline">¶</a></h3>
+<p>We will deal with this question for the remainder of the book, and it is an understatement to say that it will lead us to some amazing results. For now, let’s end this chapter with one more example.</p>
+<p>We’ll use the posterior samples to answer the following question: what is the expected number of texts at day <span class="math notranslate nohighlight">\(t, \; 0 \le t \le 70\)</span> ? Recall that the expected value of a Poisson variable is equal to its parameter <span class="math notranslate nohighlight">\(\lambda\)</span>. Therefore, the question is equivalent to <em>what is the expected value of <span class="math notranslate nohighlight">\(\lambda\)</span> at time <span class="math notranslate nohighlight">\(t\)</span></em>?</p>
+<p>In the code below, let <span class="math notranslate nohighlight">\(i\)</span> index samples from the posterior distributions. Given a day <span class="math notranslate nohighlight">\(t\)</span>, we average over all possible <span class="math notranslate nohighlight">\(\lambda_i\)</span> for that day <span class="math notranslate nohighlight">\(t\)</span>, using <span class="math notranslate nohighlight">\(\lambda_i = \lambda_{1,i}\)</span> if <span class="math notranslate nohighlight">\(t \lt \tau_i\)</span> (that is, if the behaviour change has not yet occurred), else we use <span class="math notranslate nohighlight">\(\lambda_i = \lambda_{2,i}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figsize</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># tau_samples, lambda_1_samples, lambda_2_samples contain</span>
+<span class="c1"># N samples from the corresponding posterior distribution</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">tau_samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">expected_texts_per_day</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_count_data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_count_data</span><span class="p">):</span>
+    <span class="c1"># ix is a bool index of all tau samples corresponding to</span>
+    <span class="c1"># the switchpoint occurring prior to value of &#39;day&#39;</span>
+    <span class="n">ix</span> <span class="o">=</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="n">tau_samples</span>
+    <span class="c1"># Each posterior sample corresponds to a value for tau.</span>
+    <span class="c1"># for each day, that value of tau indicates whether we&#39;re &quot;before&quot;</span>
+    <span class="c1"># (in the lambda1 &quot;regime&quot;) or</span>
+    <span class="c1">#  &quot;after&quot; (in the lambda2 &quot;regime&quot;) the switchpoint.</span>
+    <span class="c1"># by taking the posterior sample of lambda1/2 accordingly, we can average</span>
+    <span class="c1"># over all samples to get an expected value for lambda on that day.</span>
+    <span class="c1"># As explained, the &quot;message count&quot; random variable is Poisson distributed,</span>
+    <span class="c1"># and therefore lambda (the poisson parameter) is the expected value of</span>
+    <span class="c1"># &quot;message count&quot;.</span>
+    <span class="n">expected_texts_per_day</span><span class="p">[</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambda_1_samples</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                                   <span class="o">+</span> <span class="n">lambda_2_samples</span><span class="p">[</span><span class="o">~</span><span class="n">ix</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">/</span> <span class="n">N</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_count_data</span><span class="p">),</span> <span class="n">expected_texts_per_day</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#E24A33&quot;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;expected number of text-messages received&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_count_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Day&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Expected # text-messages&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Expected number of text-messages received&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">count_data</span><span class="p">)),</span> <span class="n">count_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;observed texts per day&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Ch1_Introduction_Pyro_32_0.png" src="../../_images/Ch1_Introduction_Pyro_32_0.png" />
+</div>
+</div>
+<p>Our analysis shows strong support for believing the user’s behavior did change (<span class="math notranslate nohighlight">\(\lambda_1\)</span> would have been close in value to <span class="math notranslate nohighlight">\(\lambda_2\)</span> had this not been true), and that the change was sudden rather than gradual (as demonstrated by <span class="math notranslate nohighlight">\(\tau\)</span>’s strongly peaked posterior distribution). We can speculate what might have caused this: a cheaper text-message rate, a recent weather-to-text subscription, or perhaps a new relationship. (In fact, the 45th day corresponds to Christmas, and I moved away to Toronto the next month, leaving a girlfriend behind.)</p>
+<div class="section" id="exercises">
+<h4>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h4>
+<p>1.  Using <code class="docutils literal notranslate"><span class="pre">lambda_1_samples</span></code> and <code class="docutils literal notranslate"><span class="pre">lambda_2_samples</span></code>, what is the mean of the posterior distributions of <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2.  What is the expected percentage increase in text-message rates? <code class="docutils literal notranslate"><span class="pre">hint:</span></code> compute the mean of <code class="docutils literal notranslate"><span class="pre">lambda_1_samples/lambda_2_samples</span></code>. Note that this quantity is very different from <code class="docutils literal notranslate"><span class="pre">lambda_1_samples.mean()/lambda_2_samples.mean()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3. What is the mean of <span class="math notranslate nohighlight">\(\lambda_1\)</span> <strong>given</strong> that we know <span class="math notranslate nohighlight">\(\tau\)</span> is less than 45.  That is, suppose we have been given new information that the change in behaviour occurred prior to day 45. What is the expected value of <span class="math notranslate nohighlight">\(\lambda_1\)</span> now? (You do not need to redo the PyMC3 part. Just consider all instances where <code class="docutils literal notranslate"><span class="pre">tau_samples</span> <span class="pre">&lt;</span> <span class="pre">45</span></code>.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[1] Gelman, Andrew. N.p.. Web. 22 Jan 2013. <a class="reference external" href="http://andrewgelman.com/2005/07/31/n_is_never_larg">N is never large enough</a>.</p></li>
+<li><p>[2] Norvig, Peter. 2009. <a class="reference external" href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35179.pdf">The Unreasonable Effectiveness of Data</a>.</p></li>
+<li><p>[3] Salvatier, J, Wiecki TV, and Fonnesbeck C. (2016) Probabilistic programming in Python using PyMC3. <em>PeerJ Computer Science</em> 2:e55 <a class="reference external" href="https://doi.org/10.7717/peerj-cs.55">https://doi.org/10.7717/peerj-cs.55</a></p></li>
+<li><p>[4] Jimmy Lin and Alek Kolcz. Large-Scale Machine Learning at Twitter. Proceedings of the 2012 ACM SIGMOD International Conference on Management of Data (SIGMOD 2012), pages 793-804, May 2012, Scottsdale, Arizona.</p></li>
+<li><p>[5] Cronin, Beau. “Why Probabilistic Programming Matters.” 24 Mar 2013. Google, Online Posting to Google . Web. 24 Mar. 2013. <a class="reference external" href="https://plus.google.com/u/0/107971134877020469960/posts/KpeRdJKR6Z1">https://plus.google.com/u/0/107971134877020469960/posts/KpeRdJKR6Z1</a>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="k">def</span> <span class="nf">css_styling</span><span class="p">():</span>
+    <span class="n">styles</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../styles/custom.css&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="n">styles</span><span class="p">)</span>
+<span class="n">css_styling</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+    @font-face {
+        font-family: "Computer Modern";
+        src: url('http://9dbb143991406a7c655e-aa5fcb0a5a4ec34cff238a2d56ca4144.r56.cf5.rackcdn.com/cmunss.otf');
+    }
+    @font-face {
+        font-family: "Computer Modern";
+        font-weight: bold;
+        src: url('http://9dbb143991406a7c655e-aa5fcb0a5a4ec34cff238a2d56ca4144.r56.cf5.rackcdn.com/cmunsx.otf');
+    }
+    @font-face {
+        font-family: "Computer Modern";
+        font-style: oblique;
+        src: url('http://9dbb143991406a7c655e-aa5fcb0a5a4ec34cff238a2d56ca4144.r56.cf5.rackcdn.com/cmunsi.otf');
+    }
+    @font-face {
+        font-family: "Computer Modern";
+        font-weight: bold;
+        font-style: oblique;
+        src: url('http://9dbb143991406a7c655e-aa5fcb0a5a4ec34cff238a2d56ca4144.r56.cf5.rackcdn.com/cmunso.otf');
+    }
+    div.cell{
+        width:800px;
+        margin-left:16% !important;
+        margin-right:auto;
+    }
+    h1 {
+        font-family: Helvetica, serif;
+    }
+    h4{
+        margin-top:12px;
+        margin-bottom: 3px;
+       }
+    div.text_cell_render{
+        font-family: Computer Modern, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        line-height: 145%;
+        font-size: 130%;
+        width:800px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .CodeMirror{
+            font-family: "Source Code Pro", source-code-pro,Consolas, monospace;
+    }
+    .prompt{
+        display: None;
+    }
+    .text_cell_render h5 {
+        font-weight: 300;
+        font-size: 22pt;
+        color: #4057A1;
+        font-style: italic;
+        margin-bottom: .5em;
+        margin-top: 0.5em;
+        display: block;
+    }
+
+    .warning{
+        color: rgb( 240, 20, 20 )
+        }  
+</style>
+<script>
+    MathJax.Hub.Config({
+                        TeX: {
+                           extensions: ["AMSmath.js"]
+                           },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                },
+                displayAlign: 'center', // Change this to 'center' to center equations.
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 4}}
+                }
+        });
+</script>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part_I/Module_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">Probabilitic-Programming-with-Pyro</a>
+    <a class='right-next' id="next-link" href="../../Part_II/Module_1/Module1_stacks_robust_regression-Pyro.html" title="next page">Stacks: linear regression model</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Soma S. Dhavala, Prakash Bisht<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
